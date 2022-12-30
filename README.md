@@ -17,9 +17,10 @@ Please contact bohanl1@cs.cmu.edu if you have any questions.
 
 ## Requirements
 
-* Python >= 3.6
-* PyTorch >= 1.0
-* pip install editdistance
+* Python >= 3.8
+* PyTorch >= 1.13.0
+* pytorch-lightning == 1.8.6
+* pip install editdistance == 0.5.3
 
 ## Data
 
@@ -43,14 +44,14 @@ with pytorch_lightning is:
 
 ```
 python Lit_text.py \
-      --experiment test \
+      --experiment experiment_name \
       --dataset yahoo \
       --beta 0 \
       --lr 0.5 \
       --logging_frequency 100 \
       --workers 2 \
       --train 1 \
-      # --resume "lightning_logs/test-yahoo/checkpoints/version_23/last.ckpt" \
+      # --resume "lightning_logs/{experiment_name}/checkpoints/version_{version_number}/last.ckpt" \
       # --eval 0 \
       # --test 0 \
       # --decoding_strategy sample \
@@ -76,7 +77,7 @@ with pytorch_lightning is:
 
 ```
 python Lit_text.py \
-    --experiment test_fb2 \
+    --experiment experiment_name_fb2 \
     --dataset yahoo \
     --reset_dec \
     --kl_start 0 \
@@ -89,8 +90,8 @@ python Lit_text.py \
     --train 1 \
     --eval 0 \
     --test 0 \
-    --load_path "lightning_logs/test-yahoo/checkpoints/version_18/last.ckpt" \
-    # --resume "lightning_logs/test_fb2-yahoo/checkpoints/version_7/last.ckpt"
+    --load_path "lightning_logs/{experiment_name}/checkpoints/version_{version_number}/last.ckpt" \
+    # --resume "lightning_logs/{experiment_name_fb2}/checkpoints/version_{version_number}/last.ckpt"
 ```
 
 
